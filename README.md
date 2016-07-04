@@ -1,1 +1,1 @@
-# Coursera-Algorithm
+# Algorithm
