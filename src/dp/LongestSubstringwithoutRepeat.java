@@ -9,6 +9,7 @@ public class LongestSubstringwithoutRepeat {
 	//	String s= "GEEKSFORGEEKS";
 	//	String s= "ABDEFGABEF";
 	//	String s= "AAAAAAAAAAAAAA";
+		//String s= "BBBBVVBBBBBBB";
 		String s= "AAAAAAAAAAa";
 		LongestSubstringwithoutRepeat sol= new LongestSubstringwithoutRepeat();
 		Result result = sol.findMaxLength(s);
