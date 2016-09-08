@@ -14,7 +14,7 @@ public class ConvertTreeThatHoldsChildSumProperty {
 		
 		traverse(root);
 		Node newRoot= getChildSumTree(root);
-		System.out.println("\nAfter...");
+		System.out.println("\nAfter.....");
 		traverse(newRoot);
 	}
 
