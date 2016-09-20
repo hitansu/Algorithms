@@ -49,7 +49,7 @@ public class Merge2SpecialSortedArray {
 	}
 	
 	private static void merge(int[] a, int[] b, int i, int j, int k, int m) {
-		if(k>= 2*m) {
+		if(k>= 2*m) {;
 			return;
 		}
 		if(k== 2*m-1 && i<2*m) {
