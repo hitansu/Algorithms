@@ -22,8 +22,8 @@ public class PairWiseSwapNode {
 			System.out.print(headNew.data+" ");
 			headNew= headNew.next;
 		}*/		
-//		Node headNewRec= doPairwiseSwapRec(head);
-		Node headNewRec = doPairwiseSwapRec(head, head.next);
+		Node headNewRec= doPairwiseSwapRec(head);
+//		Node headNewRec = doPairwiseSwapRec(head, head.next);
 		System.out.println("\nAfter swapping");
 		while(headNewRec!= null) {
 			System.out.print(headNewRec.data+" ");

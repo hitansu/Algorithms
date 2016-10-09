@@ -1,5 +1,11 @@
 package geometry;
 
+/**
+ * Main Idea: Compare the slopes(rotations)
+ * 
+ * @author hitansu (hitansu166@gmail.com)
+ *
+ */
 public class Check2LinesIntersect {
 
 	public static void main(String[] args) {

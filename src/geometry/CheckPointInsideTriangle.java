@@ -1,5 +1,11 @@
 package geometry;
 
+/**
+ * Main Idea: Area of large trianle= sum of 3 triangles made with the given point
+ * 
+ * @author hitansu (hitansu166@gmail.com)
+ *
+ */
 public class CheckPointInsideTriangle {
 
 	public static void main(String[] args) {

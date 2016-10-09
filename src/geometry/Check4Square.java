@@ -3,8 +3,9 @@ package geometry;
 import java.util.HashSet;
 
 /**
- * Checks if 4 points makes a square
- * @author jenah
+ * Main Idea: check if from centre to each point dist is same and length of side same & satisfy pythogoras theory for 90 degree
+ * 
+ * @author hitansu (hitansu166@gmail.com)
  *
  */
 public class Check4Square {

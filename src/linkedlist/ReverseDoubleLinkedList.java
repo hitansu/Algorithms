@@ -41,7 +41,8 @@ public class ReverseDoubleLinkedList {
 	}
 	
 	private static Node reverseRec(Node head) {
-		return reverseRec(null, head);
+		//return reverseRec(null, head);
+		return reverseRec_1(null, head);
 	}
 	
 	private static Node reverseRec(Node prev, Node curr) {
@@ -50,6 +51,16 @@ public class ReverseDoubleLinkedList {
 		curr.next= prev;
 		if(prev!= null)
 			prev.prev= curr;
+		return head;
+	}
+	
+	private static Node reverseRec_1(Node prev, Node curr) {
+		if(curr== null)
+			return prev;
+		Node head= reverseRec_1(curr, curr.next);
+		curr.prev= curr.next;
+		curr.next= prev;
+		
 		return head;
 	}
 

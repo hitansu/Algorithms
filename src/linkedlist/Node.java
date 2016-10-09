@@ -6,6 +6,7 @@ public class Node {
 	Node next;
 	Node prev;
 	Node down;
+	Node arb;
 	
 	public Node(int data) {
 		this.data= data;

@@ -3,6 +3,11 @@ package geometry;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * 
+ * @author hitansu (hitansu166@gmail.com)
+ *
+ */
 public class ClosestPairPoint {
 
 	public static void main(String[] args) {
@@ -25,7 +30,7 @@ public class ClosestPairPoint {
 		if(size<= 3) {
 			return calClosest(px,l,h);
 		}
-		int mid= l+h/2;
+		int mid= (l+h)/2;
 		Point midP= px[mid];
 		Point[] pyl= new Point[mid-l+1];
 		Point[] pyr= new Point[h-mid];
