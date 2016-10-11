@@ -7,7 +7,7 @@ public class CombinationOfString {
 
 	public static void main(String[] args) {
 
-		String s= "abcd";
+		String s= "abc";
 		List<String> combinationOfString = getCombinationOfString("", s);
 		for(String str: combinationOfString) {
 			System.out.println(str);

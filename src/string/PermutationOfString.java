@@ -1,18 +1,21 @@
 package string;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class PermutationOfString {
 
 	public static void main(String[] args) {
-		String s= "ABCC";
-		List<String> permStrs = getPermutationOfString(s);
+		String s= "aba";
+		Set<String> permStrs = getPermutationOfString(s);
 		for(String str: permStrs) {
 			System.out.println(str);
 		}
 		
-		String str= "hij";
+		String str= "abc";
 		List<String> permutationOfStringNotInOrder = getPermutationOfStringNotInOrder(str);
 		System.out.println("*****************************");
 		for(String s1: permutationOfStringNotInOrder) {
@@ -20,7 +23,7 @@ public class PermutationOfString {
 		}
 	}
 
-	private static List<String> getPermutationOfString(String str) {
+	private static Set<String> getPermutationOfString(String str) {
 		return getPermutationOfStringUtils("", str);
 	}
 	
@@ -52,15 +55,15 @@ public class PermutationOfString {
 		chars[j]= tmp;
 	}
 
-	private static List<String> getPermutationOfStringUtils(String prefix, String str) {
-		List<String> permStrs= new ArrayList<>();
+	private static Set<String> getPermutationOfStringUtils(String prefix, String str) {
+		Set<String> permStrs= new LinkedHashSet<String>();
 		int l= str.length();
 		if(l== 0) {
 			permStrs.add(prefix);
 			return permStrs;
 		}
 		for(int i= 0;i<l;i++) {
-			List<String> strs= getPermutationOfStringUtils(prefix+str.charAt(i), str.substring(0, i)+str.substring(i+1, l));
+			Set<String> strs= getPermutationOfStringUtils(prefix+str.charAt(i), str.substring(0, i)+str.substring(i+1, l));
 			permStrs.addAll(strs);
 		}
 		return permStrs;

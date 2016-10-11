@@ -12,8 +12,10 @@ public class RecursivelyRemoveAdjChars {
 		System.out.println(removeChars(s));
 		s= "AAA";
 		System.out.println(removeChars(s));
+	
 		
 	}
+	
 	
 	private static String removeChars(String s) {
 		int n= s.length();
