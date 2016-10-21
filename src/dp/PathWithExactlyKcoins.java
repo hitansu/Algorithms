@@ -47,8 +47,6 @@ public class PathWithExactlyKcoins {
 		
 		st.push(mat[i][j]);
 		int count= countPathUtils(mat, i-1, j, k-mat[i][j], st);
-		st.pop();
-		st.push(mat[i][j]);
 		count+= countPathUtils(mat, i, j-1, k-mat[i][j], st);
 		st.pop();
 		return count;
