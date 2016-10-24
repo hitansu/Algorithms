@@ -8,7 +8,8 @@ public class CuttingRod {
 		//int[] price= {1, 5, 8, 9, 10, 17, 17, 20};
 		int[] price= {3  , 5  , 8   ,9 , 10  ,17 , 17 , 20};
 		CuttingRod cutRod= new CuttingRod();
-	//	int findMaxVal = cutRod.findMaxVal(price, length, 8);
+		int findMaxVal = cutRod.findMaxVal(price, length, 8);
+		System.out.println("Max: "+findMaxVal);
 		int findMaxValRec= cutRod.findMaxValRec(price, length, 8);
 		System.out.println(findMaxValRec);
 		
@@ -34,7 +35,6 @@ public class CuttingRod {
 	int findMaxValRec(int[] price, int[] length, int size) {
 		if(size== 0) return 0;
 		if(size== 1) return price[0];
-		
 		int max= Integer.MIN_VALUE;
 		for(int l= 1;l<= size;l++) {
 			int val= price[l-1]+findMaxValRec(price, length, size-l);

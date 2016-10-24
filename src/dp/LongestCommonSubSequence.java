@@ -18,9 +18,7 @@ public class LongestCommonSubSequence {
 	}
 	
 	private static int maxSubSequnceLength(String s1,String s2,int l1,int h1,int l2,int h2) {
-		if(l1>h1)
-			return 0;
-		if(l2>h2)
+		if(l1>h1 || l2>h2)
 			return 0;
 		if(s1.charAt(l1)== s2.charAt(l2)) {
 			return 1+maxSubSequnceLength(s1, s2, l1+1, h1, l2+1, h2);

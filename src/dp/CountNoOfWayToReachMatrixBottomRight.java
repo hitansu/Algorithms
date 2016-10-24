@@ -37,6 +37,7 @@ public class CountNoOfWayToReachMatrixBottomRight {
 	
 	int  numberOfPaths(int i, int j)
 	{
+		if(i<0 || j<0) return 0;
 	   if (i == 0 || j == 0) return 1;
 	   return  numberOfPaths(i-1, j) + numberOfPaths(i, j-1);
 	}
