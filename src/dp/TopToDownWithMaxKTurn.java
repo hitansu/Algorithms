@@ -3,10 +3,10 @@ package dp;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TopToDownWithMaxPath {
+public class TopToDownWithMaxKTurn {
 	
 	public static void main(String[] args) {
-		TopToDownWithMaxPath path= new TopToDownWithMaxPath();
+		TopToDownWithMaxKTurn path= new TopToDownWithMaxKTurn();
 		int i= 3, j= 3, k= 2;
 		int pathCount = path.countPath(i-1, j-1, k);
 		System.out.println(pathCount);

@@ -12,8 +12,30 @@ public class MinInitialPointRequiredToReachDestination {
 	     		   {-5, -15,  4}, 
 	     		   {18,  12, -7} 
 	   			 };
-		int min_point= minPointRequired(points1, 0,0,2, 2);
+		int min_point= minPointRequired(points, 0,0,2, 2);
 		System.out.println(min_point);
+		System.err.println(minPointRequired_1(points, 0, 0, 2, 2, 0, 0));
+	}
+	
+	private static int minPointRequired_1(int[][] a, int i, int j, int m, int n, int req, int val) {
+		if(i>m || j>n)
+			return Integer.MAX_VALUE;
+		if(i== m && j== n) {
+			if(val+req+a[i][j]>0) {
+				return req;
+			} else {
+				return Math.abs(val+a[i][j]+req)+1+req;
+			}
+		}
+		if(val+req+a[i][j]<0) {
+			req= req+Math.abs(val+a[i][j]+req)+1;
+		}
+		
+		int right= minPointRequired_1(a, i, j+1, m, n, req, val+a[i][j]);
+		int down= minPointRequired_1(a, i+1, j, m, n, req, val+a[i][j]);
+		
+		return Math.min(right, down);
+		
 	}
 	
 	private static int minPointRequired(int[][] arr, int x, int y, int m, int n) {

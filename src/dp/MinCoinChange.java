@@ -3,10 +3,10 @@ package dp;
 public class MinCoinChange {
 
 	public static void main(String[] args) {
-	//	int[] coins= {25,10,5};
-		int[] coins= {9,5,6,1};
+		int[] coins= {25,10,5};
+	//	int[] coins= {9,5,6,1};
 		int v= 30;
-		v= 11;
+	//	v= 11;
 		int min_coins= findMinCoins(coins, v);
 		System.out.println("Min coins req. "+ min_coins);
 
@@ -36,7 +36,7 @@ public class MinCoinChange {
 	
 		int val= v;
 		while(val!= 0) {
-			System.out.println(exactCoins[val ]);
+			System.out.println(exactCoins[val]);
 			val= val-exactCoins[val];
 		}
 		

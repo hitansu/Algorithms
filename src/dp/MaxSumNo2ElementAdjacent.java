@@ -7,13 +7,14 @@ public class MaxSumNo2ElementAdjacent {
 
 	public static void main(String[] args) {
 	//	int[] a = {5,  5, 10, 40, 50, 35};
-		//int[] a= {-5,- 5, 10, -1, 10, -5};
+		int[] a= {-5,- 5, 10, -1, 10, -5};
 	//	int[] a= {2, 10,13, 24,30}; 
-		int[] a= {-3,-2,-1,-4};
+	//	int[] a= {-3,-2,-1,-4};
 		int sum = getSum(a);
 		System.out.println(sum);
         System.out.println(getSumRecursive(a, 0, a.length));
         System.out.println(getSumMethodEasy(a));
+        System.out.println(getSumMethodEasy_2(a));
 	}
 	
 	private static int getSumMethodEasy(int[] a) {
@@ -32,6 +33,22 @@ public class MaxSumNo2ElementAdjacent {
 			excl= sum;
 		}
 		return sum;
+	}
+	
+	private static int getSumMethodEasy_2(int[] a) {
+		int incl= 0;
+		int excl= 0;
+		int sum= 0;
+		int maxSum= Integer.MIN_VALUE;
+		for(int i= 0;i<a.length;i++) {
+			sum= Math.max(a[i], a[i]+excl);
+			excl= Math.max(excl, incl);
+			incl= Math.max(incl, sum);
+			if(sum>maxSum) {
+				maxSum= sum;
+			}
+		}
+		return maxSum;
 	}
 	
 	private static Map<String,Integer> areAllNegative(int[] a) {
