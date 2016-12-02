@@ -7,7 +7,7 @@ public class FibonaciiNumber {
 	HashMap<Integer, Integer> map= new HashMap<>();
 	public static void main(String[] args) {
 		FibonaciiNumber fibonaciiNumber= new FibonaciiNumber();
-		int fiboLoop = fibonaciiNumber.fiboLoop(5);
+		int fiboLoop = fibonaciiNumber.fiboLoop(3);
 		int fiboRec = fibonaciiNumber.fiboRec(5);
 		System.out.println("Result fibo loop:: "+fiboLoop);
 		System.out.println("Result fibo rec:: "+fiboRec);

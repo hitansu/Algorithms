@@ -13,7 +13,9 @@ public class PrintAllLeafPath {
 		root.left.right= new Node(5);
 		List<Node> nodes= new ArrayList<>();
 		
-		printAllLeafPathFromRoot(root, nodes);
+	//	printAllLeafPathFromRoot(root, nodes);
+		
+		printRootToLeaf(root, 0, new ArrayList<Node>());
 		
 	}
 	
@@ -30,6 +32,38 @@ public class PrintAllLeafPath {
 		printAllLeafPathFromRoot(root.right, nodes);
 		if(root.right!= null)
 			nodes.remove(root.right);	
+	}
+	
+	private static void printRootToLeaf(Node root, int index, List<Node> nodes) {
+		if(root== null)
+			return;
+		if(root.left== null && root.right== null) {
+			if(index>= nodes.size()) {
+				nodes.add(root);
+			} else {
+				nodes.set(index, root);
+			}
+			printPath(nodes, index);
+			return;
+		}
+		if(index>= nodes.size()) {
+			nodes.add(root);
+		} else {
+			nodes.set(index, root);
+		}
+		printRootToLeaf(root.left, index+1, nodes);
+		printRootToLeaf(root.right, index+1, nodes);
+	}
+
+	private static void printPath(List<Node> nodes, int index) {
+		int count= 0;
+		for(Node node: nodes) {
+			System.out.print(node.data+" ");
+			count++;
+			if(count== index+1)
+				break;
+		}
+		System.out.println("");
 	}
 
 	private static void printPath(List<Node> nodes) {

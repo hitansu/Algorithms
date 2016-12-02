@@ -1,5 +1,6 @@
 package heap;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -7,9 +8,13 @@ public class MedianStreamOfNumber {
 
 	public static void main(String[] args) {
 		 
-		int[] arr= {5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4};
-		int median= findMedian(arr);
-		System.out.println("Madian: "+median);
+		Integer[] arr= {5, 15, 1, 3, 2, 8, 7, 9, 10, 6, 11, 4};
+		Arrays.sort(arr, increaseOrder);
+		for(Integer i: arr) {
+			System.out.println(i);
+		}
+	//	int median= findMedian(arr);
+	//	System.out.println("Madian: "+median);
 
 	}
 	

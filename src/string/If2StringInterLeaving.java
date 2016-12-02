@@ -5,7 +5,7 @@ public class If2StringInterLeaving {
 	public static void main(String[] args) {
 		String s1= "AB";
 		String s2= "CD";
-		String s3= "ABD";
+		String s3= "ABC";
 		System.out.println(if2StringInterLeaving(s1, s2, s3));
 	}
 	

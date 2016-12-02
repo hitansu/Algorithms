@@ -15,7 +15,6 @@ public class CountPathFromSrcToDst {
 	
 	private int countPath(int[][] graph, int u, int v, int k) {
 		if(v== u && k> 0) return 0;
-		if(v== u && k== 0) return 1;
 		if(u== v && k== 0) return 1;
 		int l= graph.length;
 		int count= 0;

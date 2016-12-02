@@ -38,7 +38,6 @@ public class TopView {
 		for(Integer key: keySet) {
 			System.out.print(map.get(key)+" ");
 		}
-
 	}
 	
 	private static void getTopView(Node root, Map<Integer, Integer> map) {

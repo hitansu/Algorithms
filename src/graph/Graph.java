@@ -33,7 +33,7 @@ public class Graph<T> {
 		
 	}
 
-	private Vertex<T> getVertex(int vertexId1) {
+	public Vertex<T> getVertex(int vertexId1) {
 		Vertex<T> v1;
 		if(vertexMap.containsKey(vertexId1)) {
 			v1= vertexMap.get(vertexId1);
