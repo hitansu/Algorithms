@@ -4,12 +4,31 @@ public class OptimalBinarySearchTree {
 
 	static String s= "";
 	public static void main(String[] args) {
-		int[] freq= {34, 8, 50};
+	//	int[] freq= {34,  50};
+		int[] freq= {10, 12};
 		OptimalBinarySearchTree prob= new OptimalBinarySearchTree();
-		int optimalCost = prob.findOptimalCostRec(freq, 0, 2);
+		int optimalCost = prob.findOptimalCostRec(freq, 0, freq.length-1);
 		System.out.println(optimalCost);
 		System.out.println(prob.findOptimalCost(freq));
 		System.out.println(s);
+		
+		System.out.println(test(freq, 0, freq.length-1, 1));
+	}
+	
+	
+	static int test(int[] freq, int l, int h, int level) {
+		if(l>h) return 0;
+		if(l== h) return level*freq[l];
+		if(l+1== h) return level*Math.max(freq[l], freq[h])+(level+1)*Math.min(freq[l], freq[h]);
+		int MIN= Integer.MAX_VALUE;
+		for(int i= l;i<= h;i++) {
+			int val= test(freq, l, i-1, level+1)+(level*freq[i])+test(freq, i+1, h, level+1);
+			if(val< MIN) {
+				MIN= val;
+			}
+		}
+		
+		return MIN;
 	}
 	
 	int findOptimalCost(int[] freq) {
