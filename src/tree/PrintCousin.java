@@ -1,5 +1,18 @@
 package tree;
 
+/**
+ *         1
+ *     2       3
+ *  4    5   6    7
+ *  
+ *  Cousin of 4 will be 6, 7 (node with same level but diff parent)
+ *  Cousin of 5 will be 6, 7 (node with same level but diff parent)
+ *  Cousin of 6 will be 4, 5 (node with same level but diff parent)
+ *  Cousin of 7 will be 4, 5 (node with same level but diff parent)
+ * 
+ * @author jenah
+ *
+ */
 public class PrintCousin {
 
 	public static void main(String[] args) {
@@ -11,8 +24,7 @@ public class PrintCousin {
 		root.right.left= new Node(6);
 		root.right.right= new Node(7);
 		
-		Result r= new Result();
-		printCousin(root, null, 5, 0, r);
+		printCousin(root, 6);
 
 	}
 	
@@ -21,21 +33,34 @@ public class PrintCousin {
 		Node parent;
 	}
 
-	private static void printCousin(Node root, Node parent, int data, int level, Result r) {
+	private static void printCousin(Node root, int data) {
+		
+		Result r= new Result();
+		getLevel(root, null, data, 0, r);
+		printCousinUtil(root, null, 0, r);
+		
+	}
+
+	private static void printCousinUtil(Node root, Node parent, int level, Result r) {
 		if(root== null)
 			return;
-		if(root.data== data) {
-			r.level= level;
-			r.parent= parent;
-			return;
-		}
 		if(level== r.level && r.parent!= parent) {
 			System.out.print(root.data+" ");
 		}
 		
-		printCousin(root.left, root, data, level+1, r);
-		printCousin(root.right, root, data, level+1, r);
+		printCousinUtil(root.left, root, level+1, r);
+		printCousinUtil(root.right, root, level+1, r);
+	}
+
+	private static void getLevel(Node root, Node parent, int data, int level, Result r) {
+		if(root== null) return;
+		if(root.data== data) {
+			r.level= level;
+			r.parent= parent;
+		}
 		
+		getLevel(root.left, root, data, level+1, r);
+		getLevel(root.right, root, data, level+1, r);
 	}
 
 }

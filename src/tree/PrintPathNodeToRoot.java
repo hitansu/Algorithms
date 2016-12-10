@@ -31,6 +31,7 @@ public class PrintPathNodeToRoot {
 		for(int i= size-1;i>=0;i--) {
 			System.out.print(paths.get(i).data+" ");
 		}
+		
 	}
 	
 	private static String printPathNodeToRoot(Node root, int data) {

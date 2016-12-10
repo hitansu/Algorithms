@@ -20,7 +20,35 @@ public class PostOrderIterator {
 		root.right.right.right= new Node(60);
 		
 		postOrderIterator(root);
+		
+		System.out.println("\n ***************");
+		printPostOrder(root);
 
+	}
+	
+	static void printPostOrder(Node root) {
+		if(root== null) return;
+		Stack<Node> s= new Stack<>();
+		while(true) {
+			if(root!= null) {
+				s.push(root);
+				root= root.left;
+			} else {
+				if(s.isEmpty()) break;
+				Node top= s.peek();
+				if(top.right!= null) {
+					root= top.right;
+				} else {
+					System.out.print(top.data+" ");
+					s.pop();
+					while(top!= null && !s.isEmpty() && s.peek().right.data== top.data) {
+						top= s.pop();
+						System.out.print(top.data+" ");
+					}
+				}
+			}
+		}
+	
 	}
 	
 	private static void postOrderIterator(Node root) {

@@ -13,10 +13,26 @@ public class PrintAllLeafPath {
 		root.left.right= new Node(5);
 		List<Node> nodes= new ArrayList<>();
 		
-	//	printAllLeafPathFromRoot(root, nodes);
-		
+		printAllLeafPathFromRoot(root, nodes);
+		System.out.println("\n*******");
 		printRootToLeaf(root, 0, new ArrayList<Node>());
+		System.out.println("\n*******");
+		printAllLeafPathFromRoot_(root, new ArrayList<Node>());
 		
+	}
+	
+	private static void printAllLeafPathFromRoot_(Node root, List<Node> nodes) {
+		if(root== null) return;
+		if(root.left== null && root.right== null) {
+			nodes.add(root);
+			printPath(nodes);
+			nodes.remove(root);
+			return;
+		}
+		nodes.add(root);
+		printAllLeafPathFromRoot_(root.left, nodes);
+		printAllLeafPathFromRoot_(root.right, nodes);
+		nodes.remove(root);
 	}
 	
 	private static void printAllLeafPathFromRoot(Node root, List<Node> nodes) {
