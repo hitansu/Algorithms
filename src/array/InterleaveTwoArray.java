@@ -18,6 +18,24 @@ public class InterleaveTwoArray {
 			}
 			System.out.println("");
 		}
+		
+		interleaveString("ab", 0, "cd", 0, "");
+	}
+	
+	private static void interleaveString(String s1, int i1, String s2, int i2, String s) {
+		if(s.length()== s1.length()+s2.length()) {
+			System.out.println(s);
+		}
+		if(i1<s1.length()) {
+			String s_= s+s1.charAt(i1);
+			interleaveString(s1, i1+1, s2, i2, s_);
+		}
+		
+		if(i2<s2.length()) {
+			String s_= s+s2.charAt(i2);
+			interleaveString(s1, i1, s2, i2+1, s_);
+		}
+		
 	}
 
 	private static void interleave(int[] a, int l1, int h1, int[] b, int l2, int h2, Integer[] prefix,List<Integer[]> results,int i) {

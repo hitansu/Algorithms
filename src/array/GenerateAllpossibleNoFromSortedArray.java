@@ -1,5 +1,8 @@
 package array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GenerateAllpossibleNoFromSortedArray {
 
 	public static void main(String[] args) {
@@ -8,7 +11,47 @@ public class GenerateAllpossibleNoFromSortedArray {
 		int m= a.length;
 		int n= b.length;
 		int[] c= new int[m+n];
-		generateAllPossibleNo(a,0,m,b,0,n,c,0,true);
+	//	generateAllPossibleNo(a,0,m,b,0,n,c,0,true);
+		
+		generate(a, b, 0, 0, 0, new ArrayList<Integer>(), 0, true);
+	}
+
+	static void generate(int[] a, int[] b, int index_1, int index_2, int index, List<Integer> list, int size, boolean flag) {
+		
+		if(flag && size>0 && size%2== 0) {
+			print(list, size);
+		}
+		
+		if((flag && index_1>= a.length) || (!flag && index_2>= b.length)) return;
+		
+		if(flag) {
+			for(int i= index_1;i<a.length;i++) {
+				if(index== 0 || list.get(index-1)<a[i]) {
+					list.add(index, a[i]);
+					generate(a, b, i+1, index_2, index+1, list, size+1, false);
+				}
+			}
+		} else {
+			for(int j= index_2;j<b.length;j++) {
+				if(list.get(index-1)<b[j]) {
+					list.add(index, b[j]);
+					generate(a, b, index_1, j+1, index+1, list, size+1, true);
+				}
+			
+			}
+		}
+	}
+	
+	
+	private static void print(List<Integer> list, int size) {
+		int count= 1;
+		for(Integer i: list) {
+			System.out.print(i+" ");
+			count++;
+			if(count>size) break;
+		}
+		System.out.println("");
+		
 	}
 
 	private static void generateAllPossibleNo(int[] a, int i, int m, int[] b, int j, int n, int[] c, int len, boolean flag) {
