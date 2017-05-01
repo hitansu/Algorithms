@@ -1,5 +1,36 @@
 package amazon_alexa;
 
+/**
+ * Question:
+ * It is presidential election time.Mr X is fighting for the president.The country has N number of cities.
+   The cities are divided into developed & developing city on basis of a developemt index A.
+   If A is 1, then the city is developed. If A is 0, then the city is developing.
+   A close source to Mr X told that all the people from developing cities will vote for him while people
+   from only k number of developed cities will vote for him.
+   Find out the no of maximum vote in favour & minimum vote in against Mr X will get.
+
+	Input
+	------
+	10 3
+	0 12
+	0 6
+	0 7
+	1 8
+	1 12
+	1 17
+	1 20
+	1 22
+	1 5
+	1 6
+
+	First 2 line gives no of cities N= 10 & number of developed cities vote for Mr X k= 3
+	Next 10 lines give the development index A & number of people in the city
+	For example in the first line A= 0, no of people= 12
+ * 
+ */
+
+
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
