@@ -1,5 +1,29 @@
 package amazon_alexa;
 
+/**
+ * Question:
+ * 
+ *  In a country the cities are connected through roads of 3 types 1, 2, 3.
+	All the roads are bi-directional. The roads of a city has some restriction.
+	Road of type 3: both men and women can walk
+	Road of type 2: only women can walk
+	Road of type 1: only men can walk
+	Now the govt. wants to remove extra roads.But the cities should be connected for both men & women.
+	Connected means one should able to reach from one city to other & vice-versa.
+	Find out the maximum no of roads can be removed so that the cities can be accessible to both men & women.
+	Input:
+	5 5
+	1 2 3
+	2 3 3
+	3 4 3
+	5 3 2
+	5 4 1
+	First line gives no of cities & no of roads. Next each 5 lines gives city source, city destination, type for a roads.
+	5: no of cities 5: no of roads
+	1: city 2   2: city 2    3: type 3 road
+
+	o/p: 2
+ */
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
