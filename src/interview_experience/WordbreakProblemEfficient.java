@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class WordbreakProblem {
+public class WordbreakProblemEfficient {
 
 	static Set<String> dictionary= new HashSet<String>() {
 		{
@@ -23,18 +23,18 @@ public class WordbreakProblem {
 		String str= "catsanddog";
 //		str= "samsung";
 		List<String> validwords= new ArrayList<>();
-	//	addValidWords(str, validwords);
-		wordBreakUtil(str, validwords);
+	//(str, validwords);
+		wordBreakUtil(str, validwords, "");
 		
 		for(String s: validwords) {
-			System.out.print(s+" ");
+			System.out.println(s);
 		}
-		System.out.println("");
-		printValidwords();
+	//	System.out.println("");
+	//	printValidwords();
 		
 	}
 	
-	static void wordBreakUtil(String str, List<String> validwords)
+	static void wordBreakUtil(String str, List<String> validwords, String result)
 	{
 		int size= str.length();
 	    //Process all prefixes one by one
@@ -45,34 +45,18 @@ public class WordbreakProblem {
 	
 	        if (dictionary.contains(prefix))
 	        {
-	            // if no more elements are there, print it
-	          //  if (i == size)
-	        ////    {
-	            	validwords.add(prefix);
-	             //   return;
-	         //   }
-	            wordBreakUtil(str.substring(i),validwords);
+	        	//   validwords.add(prefix);
+	        	   String s= str.substring(i);
+	        	   if(s.isEmpty()) {
+	        		   validwords.add(result+prefix);
+	        	   } else {
+	        		   wordBreakUtil(str.substring(i),validwords, result+prefix+" ");
+	        	   }
+	            
 	        }
 	    }      //end for
 	}//end function
 	
-	static boolean addValidWords(String s, List<String> validwords) {
-		if(s.length()== 0) {
-			return true;
-		}
-		
-		int n= s.length();
-		for(int i= 0;i<=n;i++) {
-			if(dictionary.contains(s.substring(0, i))) {
-				if(addValidWords(s.substring(i), validwords)) {
-					validwords.add(s.substring(0, i));
-					return true;
-				}
-				
-			}
-		}
-		return false;
-	}
 	
 	static void printValidwords() {
 		String s= "catsanddog";
